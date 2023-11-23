@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FORMULÁRIO</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-color: cadetblue;
+    }
+</style>
+</head>
+<body>
+    <div class="container card mt-3 p-3">
+   <form action="">
+     <div class="input-group mb-3">
+     <label class=" input-group-text">Nome</label>
+     <input type="text" class="form-control" placeholder="Digite seu nome">
+     </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Digite seu email">
+        <div class="input-group-prepend">
+        <label class=" input-group-text">@gmail.com</label>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Test">
+        <div class="input-group-prepend">
+        <select class="form-select form-control input-group-text">
+            <option selected>@gmail.com &nbsp &nbsp</option>
+            <option>@hotmail.com &nbsp &nbsp</option>
+            </select>
+    </div>
+    </div>
+    <div class="input-group mb-3">
+        <label class=" input-group-text">Senha</label>
+        <input type="password" class="form-control" placeholder="Digite a senha">
+        <div class="form-text">Minimo 8 caracteres</div>
+       </div>
+    <div class="mb-3-form-check">
+        <input type="checkbox" class="form-check-input">
+        <label class="form-check-label">Desenvolvedor FullStack</label>
+       </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input">
+        <label class="form-check-label">Programador Python</label>
+        </div>
+        <div class="mb-3">
+            <label classs="form-label">Estado</label>
+            <select class="form-select">
+                <option value="0">AM</option>
+                <option value="1"selected>CE</option>
+                <option value="2">SP</option>
+                <option value="3">AC</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Comentário</label>
+            <textarea class="form-control" rows="3" placeholder="Digite um comentário"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Data de Nascimento</label>
+                <input type="date" class="form-control">
+                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radio" value="1">
+                <label class="form-check-label">
+                    Aceito compartilhar meus dados
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radio"  checked value="2">
+                <label class="form-check-label">
+                    Não aceito o compartilhamento dos meus dados
+                </label>
+            </div>
+    <button type="submit" class="btn btn-info">Salvar</button>
+   </form>
+</div>
+</body>
+</html>
