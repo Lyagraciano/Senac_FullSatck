@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        fieldset{
+        background-image: url(planodefundo.jpg);
+        background-blend-mode: multiply;
+    }
+        legend {
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: bold;
+             font-size: 200%;
+        }
+         textarea{
+                width: 100%; height: 150px !important;
+                resize: none;
+
+            }
+        
+        input, select{
+            width: 100%; height: 30px; 
+            margin-bottom: 4px;
+            border:1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            
+        }
+        input[type=submit]{
+            width: 120px;
+            background-color: lightsalmon;
+            cursor: pointer;
+
+        }
+        textarea:focus, input:focus{
+            background-color: rgb(230, 173, 173);
+        }
+        body{
+            padding: 2%;
+            
+        } 
+    </style>
+<body>
+    <fieldset>
+        <legend>Cadastro de notas</legend>
+        <form action="">
+            <label> Nome</label>
+            <input type="text">
+            <label>Curso</label>
+            <select>
+                <option>Excel</option>
+                <option>Word</option>
+                <option>Programador de sistemas</option>
+                <option>Desenvolvedor Fullstack</option>
+            </select>
+            <label>Nota</label>
+            <input type="number" min="0" max="10">
+            <label>Observação</label><br>
+            <textarea cols="30" rows="10" placeholder="Digite aqui"></textarea>
+            <input type="submit" value="Salvar">
+        </form>
+    </fieldset>
+</body>
+</html>
