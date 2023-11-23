@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Desafio do Assassino</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+    container{
+        font-family:'Times New Roman', Times, serif
+    }
+    body{
+        background-color:rgb(224, 224, 224);
+    }
+
+</style>
+</head>
+<body>
+    <form id="Suspeitos">
+        <div class="container card mt-2">
+        <h1 class="text-center mt-2"> Questionário </h1>
+        <hr>
+        1 - Você telefonou para a vítima?
+        <br>
+        Sim <input type="checkbox" id="s1">
+        Não <input type = "checkbox" id = "s2">
+        <br>
+        2 - Você esteve no local do crime?
+        <br>
+        Sim <input type="checkbox" id="s3">
+        Não <input type="checkbox" id="s4">
+        <br>
+        3 - Você mora perto da vítima?
+        <br>
+        Sim <input type="checkbox" id="s5">
+        Não <input type = "checkbox" id = "s6">
+        <br>
+        4 - Você devia para a vítima?
+        <br>
+        Sim <input type="checkbox" id="s7">
+        Não <input type="checkbox" id="s8">
+        <br>
+        5 - Você já trabalhou com a vítima?
+        <br>
+        Sim <input type = "checkbox" id = "s9">
+        Não <input type = "checkbox" id = "s10">
+        <br>
+        <input type = "submit" value = "Enviar Respostas" class="btn btn-danger">
+        </div>
+        <script>
+            document.getElementById("Suspeitos").onsubmit = function(){
+                var s1 = document.getElementById("s1").checked;
+                var s2 = document.getElementById("s2").checked;
+                var s3 = document.getElementById("s3").checked;
+                var s4 = document.getElementById("s4").checked;
+                var s5 = document.getElementById("s5").checked;
+                var s6 = document.getElementById("s6").checked;
+                var s7 = document.getElementById("s7").checked;
+                var s8 = document.getElementById("s8").checked;
+                var s9 = document.getElementById("s9").checked;
+                var s10 = document.getElementById("s10").checked;
+
+               /* if (s1 && s3 && s5 && s7 && s9){
+                    alert("Assassino")
+                }
+                else {
+                    if (s2 && s4 && s6 && s8 && s10){
+                        alert("Inocente")
+                    }
+              }
+                */
+              let contador = 0
+                if (s1 == 1){
+                    contador = contador +1
+            }
+            if (s3 == 1){
+                contador = contador +1
+            }
+            if (s5 == 1){
+                contador = contador +1
+            }
+            if (s7 == 1){
+                contador = contador +1
+            }
+            if (s9 == 1){
+                contador = contador +1
+            }
+            if (contador < 2)
+            alert ("Inocente");
+
+            if (contador == 2)
+            alert ("Suspeito");
+ 
+            if (contador == 3 || contador == 4)
+            alert ("Cúmplice");
+
+            if (contador == 5)
+            alert ("Assassino");
+            
+           return false;
+        }
+            
+        </script>
+       </form>
+</body>
+</html>

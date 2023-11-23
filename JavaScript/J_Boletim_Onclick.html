@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <style>
+        body{
+            background-color: rgb(228, 223, 223);
+        }
+        form{
+            width: 90px;
+            margin: auto;
+        }
+        input {
+            border-radius: 3px;
+            border: 2px;
+        }
+        input[type = "submit"]{
+            background-color: rgb(87, 87, 205);
+            font-size: medium;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+         Nota 1: <input type = "text" id = "n1">
+         <br>
+         Nota 2: <input type = "text" id = "n2">
+         <br>
+         Nota 3: <input type = "text" id = "n3">
+         <br>
+         Média: <input type = "text" id = "media" disabled>
+         <br>
+         Situação: <input type = "text" id = "situacao" disabled>
+         <br>
+         <button onclick = "return media()">Calcular Média</button> <!--Não é recomendado utilizar a variável e função com o mesmo nome!-->
+         <div id="divRecuperacao">
+            Nota Recuperação: <input type = "text" id="nr">
+            <br>
+            <button onclick="return recuperacao()">Calcular Recuperação:</button>
+            <br>
+            Média Recuperação: <input type = "text" id = "mRec" disabled>
+            <br>
+            Situação Final: <input type="text" id="sRec" disabled>
+         </div>
+    <script>
+        document.getElementById("divRecuperacao").style.display = "none"; // essa função vai fazer sumir a parte da recuperação, mostrando apenas só quando necessário.
+            function media(){
+                N1 = document.getElementById("n1").value;
+                N2 = document.getElementById("n2").value;
+                N3 = document.getElementById("n3").value;
+                Media = (parseFloat(N1) + parseFloat(N2) + parseFloat(N3))/3; 
+            if (Media >= 7){
+                situacao = "Aprovado";
+            }
+            else {
+                situacao = "Recuperação";
+                document.getElementById("divRecuperacao").style.display = "block";
+            }
+            
+            document.getElementById("media").value = Media;
+            document.getElementById("situacao").value = situacao;
+            return false;
+        } 
+        function recuperacao(){
+            //(média anterior + recuperação) /2
+            var mediaAnterior = document.getElementById("media").value;
+            var notaRecuperacao = document.getElementById("nr").value;
+            
+            mediaRecuperacao = (parseFloat(mediaAnterior) + parseFloat(notaRecuperacao))/2;
+            if (mediaRecuperacao >= 5){
+                situacao = "Aprovado";
+                }
+            else{
+                situacao = "Reprovado";
+            }
+            document.getElementById("mRec").value = Media;
+            document.getElementById("sRec").value = situacao;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form id="calculo">
+    Número 1: <input type="text" id ="n1">
+    Número 2: <input type="text" id ="n2">
+    Total: <input type="number" id="total">
+    <input type="submit" value="Calcular">
+   </form>
+   <script>
+    //document = o arquivo html que estamos utilizando.
+    //getElementById = busca o elemento pelo id.
+    //onsubmit = evento que ocorreá quando algo for submetido.
+    //function = função criada pelo programador.
+    //float, double são valores numéricos.
+
+       document.getElementById('calculo').onsubmit = function(){
+           var n1= document.getElementById('n1').value; //o value é o valor que está escrito no input.
+           var n2= document.getElementById("n2").value;
+           var total = parseFloat(n1) + parseFloat(n2); // o pasreFloat converte o valor para um número.
+           document.getElementById('total').value = total; // atribuindo no value do elemento total o valor da variável total.
+           return false;
+       }
+   </script>
+</body>
+</html>

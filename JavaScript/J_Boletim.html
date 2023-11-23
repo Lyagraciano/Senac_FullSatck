@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <style>
+        body{
+            background-color: rgb(228, 223, 223);
+        }
+        form{
+            width: 90px;
+            margin: auto;
+        }
+        input {
+            border-radius: 3px;
+            border: 2px;
+        }
+        input[type = "submit"]{
+            background-color: rgb(87, 87, 205);
+            font-size: medium;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form id = "Boletim">
+         Nota 1: <input type = "text" id = "n1">
+         <br>
+         Nota 2: <input type = "text" id = "n2">
+         <br>
+         Nota 3: <input type = "text" id = "n3">
+         <br>
+         Média: <input type = "text" id = "media" disabled>
+         <br>
+         <br><input type = "submit" value = "Calcular">
+    </form>
+    <script>
+        document.getElementById ("Boletim").onsubmit = function(){
+            var n1 = document.getElementById ("n1").value;
+            var n2 = document.getElementById ("n2").value;
+            var n3 = document.getElementById ("n3").value;
+            var media = (parseFloat(n1) + parseFloat(n2) + parseFloat(n3)) / 3;
+            document.getElementById("media").value = media;
+            if (media >=7){
+                alert ("Aprovado");
+            }
+            if (media <7 && media >=4){
+                alert ("Recuperação");
+            }
+            if (media <4){
+                alert ("Reprovado");
+            }
+            return false;
+          }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>área do trapézio</title>
+</head>
+<body>
+    <form id="calculo">
+        Base Maior: <input type = "text" id = "baseMaior">
+        Base Menor: <input type = "text" id = "baseMenor">
+        Altura: <input type = "text" id = "altura">
+        <br>
+        Trapézio: <input type = "text" id = "trapezio" disabled>
+        <input type = "submit" value = "calcular">
+    </form>
+    <script>
+        document.getElementById("calculo").onsubmit = function(){
+            var baseMaior = document.getElementById("baseMaior").value;
+            var baseMenor = document.getElementById("baseMenor").value;
+            var altura = document.getElementById("altura").value;
+            var trapezio = (parseFloat(baseMaior) + parseFloat(baseMenor)) * parseFloat(altura)/2;
+            document.getElementById("trapezio").value = trapezio;
+            return false;
+        }
+    </script>
+</body>
+</html>

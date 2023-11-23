@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Detetive Onclick</title>
+</head>
+    <body>
+<div>
+    <h3>Formulário Investigativo</h3>
+</div>
+    <button onclick = "return pergunta1()">1</button>
+    <button onclick = "return pergunta2()">2</button>
+    <button onclick = "return pergunta3()">3</button>
+    <button onclick = "return pergunta4()">4</button>
+    <button onclick = "return pergunta5()">5</button>
+
+</div>
+ <br><br>
+    <button onclick = "return voltar()">Fechar</button>
+<div id = "p1">
+    Você telefonou para a vítima? <input type = "text" id="q1">
+</div>
+<div id = "p2">
+    Você esteve no local do crime? <input type = "text" id = "q2">
+</div>
+<div id = "p3">
+    Você mora perto da vítima? <input type = "text" id = "q3">
+</div>
+<div id = "p4">
+    Você devia para a vítima? <input type = "text" id = "q4">
+</div>
+<div id = "p5">
+    Você já trabalhou com a vítima? <input type = "text" id = "q5">
+</div>
+<script>
+    document.getElementById("p1").style.display = "none";
+    document.getElementById("p2").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    function pergunta1(){
+        document.getElementById("p1").style.display = "block";
+        document.getElementById("p2").style.display = "none";
+        document.getElementById("p3").style.display = "none";
+        document.getElementById("p4").style.display = "none";
+        document.getElementById("p5").style.display = "none";
+    }
+    function pergunta2(){
+        document.getElementById("p1").style.display = "none";
+        document.getElementById("p2").style.display = "block";
+        document.getElementById("p3").style.display = "none";
+        document.getElementById("p4").style.display = "none";
+        document.getElementById("p5").style.display = "none";
+    }
+    function pergunta3(){
+        document.getElementById("p1").style.display = "none";
+        document.getElementById("p2").style.display = "none";
+        document.getElementById("p3").style.display = "block";
+        document.getElementById("p4").style.display = "none";
+        document.getElementById("p5").style.display = "none";
+    }
+    function pergunta4(){
+        document.getElementById("p1").style.display = "none";
+        document.getElementById("p2").style.display = "none";
+        document.getElementById("p3").style.display = "none";
+        document.getElementById("p4").style.display = "block";
+        document.getElementById("p5").style.display = "none";
+    }
+    function pergunta5(){
+        document.getElementById("p1").style.display = "none";
+        document.getElementById("p2").style.display = "none";
+        document.getElementById("p3").style.display = "none";
+        document.getElementById("p4").style.display = "none";
+        document.getElementById("p5").style.display = "block";
+    }
+    function voltar(){
+        document.getElementById("p1").style.display = "none";
+        document.getElementById("p2").style.display = "none";
+        document.getElementById("p3").style.display = "none";
+        document.getElementById("p4").style.display = "none";
+        document.getElementById("p5").style.display = "none";
+    }
+</script>
+    </body>

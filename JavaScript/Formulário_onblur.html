@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>formulário onblur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<style>
+    form{
+        background-color: bisque;
+        padding: 20px;
+        size:20px;
+    }
+    input,submit{
+        color: white;
+        border:2px;
+        border-radius:3px;
+    }
+</style>
+</head>
+<body>
+    <form>
+<div class="form-floating mb-3">
+    <input class = "form-control" name="nome" id="name" type="text" onblur="v_nome(this)" required> <!--o onblur é para focar/desfocar o campo-->
+    <label>Nome*</label>
+    <p id="l_nome"> </p>
+</div>
+<div class="form-floating mb-3">
+    <input class = "form-control" id="rg" type="text" name="rg" onblur = "v_rg(this)//o que tá dentro do parêntese é parâmetro da função - o this chama a função para passar a informação, para não precisar utilizar o get.ElementById." required>
+    <label>RG*</label>
+    <p id="l_rg"></p>
+</div>
+<input type="submit" value = "salvar" class="btn btn-primary">
+    </form>
+    <script>
+    function v_nome (campo){// o 'campo' vai ser o input que chama a função.
+            if(campo.value.trim()==""){//'trim' é uma função pré definida que tira os espaços em branco.
+            document.getElementById('l_nome').innerHTML = "* Campo obrigatório"; //'innerHTML' é para adicionar algo em um espaço em branco.
+            document.getElementById('l_nome').style.color = "red";
+        }
+        else{
+            document.getElementById('l_nome').innerHTML = "";
+        }
+    } 
+    function rg (campo){
+            let rg = campo.value.replace (/\D/g, ''); // remove todos os caracteres que não são numéricos.
+            campo.value = rg;
+        }
+    function v_rg (campo){
+        if (campo.value.trim() == "" || campo.value.trim().length < 8){
+            document.getElementById("l_rg").innerHTML = "* Verifique se seu RG está correto";
+            document.getElementById("l_rg").style.color = "red";
+        }
+        else{
+            document.getElementById("l_rg").innerHTML ="";
+        }
+       
+    }
+</script>
+    </body>

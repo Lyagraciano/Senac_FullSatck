@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Calculadora_onclick</title>
+</head>
+<body>
+    <h2>Calculadora</h2>
+    N1: <input type="text" id = "n1">
+    <br>
+    N2: <input type ="text" id = "n2">
+    <br>
+    Resultado: <input type = "text" id = "resultado" disabled>
+    <br>
+    <button value = "calcular" onclick = "return soma()"> + </button>
+    <button value = "calcular" onclick = "return sub()"> - </button> 
+    <button value = "calcular" onclick = "return mul()"> * </button> 
+    <button value = "calcular" onclick = "return div()"> / </button>
+    <script>
+    function soma(){
+        num1= document.getElementById("n1").value;
+        num2= document.getElementById("n2").value;
+        resultado = parseFloat(num1) + parseFloat(num2);
+        document.getElementById ('resultado').value = resultado;
+    return false;
+    };
+    function sub(){
+        num3 = document.getElementById("n1").value;
+        num4 = document.getElementById("n2").value;
+        resultado = parseFloat (num3) - parseFloat(num4);
+        document.getElementById ('resultado').value = resultado;
+        return false;
+    };
+    function mul(){
+        num5= document.getElementById("n1").value;
+        num6= document.getElementById("n2").value;
+        resultado = parseFloat(num5) * parseFloat(num6);
+        document.getElementById ('resultado').value = resultado;
+    return false;
+    };
+    function div(){
+        num7= document.getElementById("n1").value;
+        num8= document.getElementById("n2").value;
+        resultado = parseFloat(num7) / parseFloat(num8);
+        document.getElementById ('resultado').value = resultado;
+    return false;
+    };
+</script>
+</body>
+</html>

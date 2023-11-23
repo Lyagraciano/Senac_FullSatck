@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>media</title>
+</head>
+<body>
+    <form id = "calculo">
+        nota 1: <input type = "text" id = "nota1">
+        nota 2: <input type = "text" id = "nota2">
+        nota 3: <input type = "text" id = "nota3">
+        <br>
+        media: <input type = "text" id = "media" disabled>
+        <input type = "submit" value = "calcular">
+    </form>
+    <script>
+        document.getElementById("calculo").onsubmit = function(){
+            var n1= document.getElementById("nota1").value;
+            var n2= document.getElementById("nota2").value;
+            var n3= document.getElementById("nota3").value;
+            var media = (parseFloat(n1) + parseFloat(n2) + parseFloat(n3))/3;
+            document.getElementById("media").value = media;
+            if (media >=7){
+                window.alert("aprovado");
+            }
+            else{
+                window.alert("reprovado");
+            }
+            return false;
+        }
+    </script>
+</body>
