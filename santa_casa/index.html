@@ -26,40 +26,40 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Santa Casa</title>
     <body>
-        <div class= 'card container mt-3'>
-        <div class = 'mt-2'>
-        <h2 style = 'text-align:center'>Cadastro de Paciente</h2>
-        </div>
-        <form action = 'cadastrar_paciente.php' method = 'POST'>                                                                
-        <div class='mb-3'>
-                <label class="form-label"> Nome*</label>
-                <input type="text" class="form-control" id="nome" name="nome" onblur= "V_nome(this)" required>
-                <div id="alertaNome" class="form-text"></div>
-                </div>
-                
-                <div class = 'mb-3'>
-                    <label class = 'form-label'>CPF*</label>
-                    <input type = 'text' class = 'form-control' id='cpf' name = 'cpf' value ='cpf' onblur='V_cpf'(this) required>
-                    <div id='alertaCpf' class='form-text'></div>
-                    </div>
-            
-                    <div class = 'mb-3'>
-                        <label class = 'form-label'>Data de Nascimento* </label>
-                        <input type = 'date' class = 'form-control' id = dataNascimento name = 'dataNascimento' value ='dataNascimento' onblur = 'V_dataNascimento(this)' required>
-                        <div id = 'alertaDataNascimento' class = 'form-text'></div>
-                        </div>
-
-            <div class='mb-3'>
-                    <label class='form-select'>Sexo*</label>
-                    <option value = 'Masculino'>Masculino</option>
-                    <option value = 'Feminino'>Feminino</option>
-                    <option value = 'Outro'>Outro</option>
-                    <select class='form-select' id='sexo' name='sexo' onblur= 'V_sexo(this)' required>
-                    <div id='alertaSexo' class='form-text'></div>
+       
+<div class='card container mt-5 pb-5' style='border: none;'>
+    <h1 style='text-align: center;' class='mt-0'>Cadastro de Paciente</h1>
+      <form class='shadow p-3' action='A57_cadastrar_paciente3_13.12.php' method='POST'>
+            <div class='mb-3 mt-4'>
+                <label class='form-label'>Nome*</label>
+                <input type='text' class='form-control' id='nome' name='nome' onblur='V_nome(this)' required>
+                <div id='alertaNome' class='form-text'></div>
             </div>
-              
-                <div class = 'mb-3'>
-                <input type = 'submit' value = 'Cadastrar' class = 'btn btn-primary' onclick = 'V_cadastrar(this)'>
+              <div class='mb-3'>
+                <label class='form-label'>Sexo*</label>
+                
+                <select class='form-select' name='sexo'> id='sexo'>
+                <option value='M' selected> Masculino</option>
+                <option value='F'> Feminino</option>
+                <option value='O'> Outros</option>
+                </select>
+              </div>
+                <div class='mb-3'>
+                    <label class='form-label'>CPF*</label>
+                    <input type='text' class='form-control' id='cpf' name='cpf' onblur='V_cpf(this)' required>
+                    <div id='alertaCPF' class='form-text'></div>
+                    </div>
+                    <div class='mb-3'>
+                        <label class='form-label'>Data de Nascimento*</label>
+                        <input type='date' class='form-control' id='dataNascimento' name='dataNascimento' onblur='V_dataNascimento(this)' required>
+                        <div id='alertaDataNascimento' class='form-text'></div>
+                      </div>
+                      
+                      <div class='mb-3'>
+                        <input type='submit' class='btn btn-primary' value='Cadastrar' onclick='V_cadastrar()'>
+                      </div>
                 </div>
-        
-        </body>
+            </div>
+      </form>
+  </div>
+  </body>
