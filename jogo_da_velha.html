@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>Jogo da Forca</title>
+</head>
+
+<body>
+    <div class="card container mt-2 mb-2" id="cardInicio">
+        <h1 class="text-center">Jogo da Velha</h1>
+
+        <div id="l0" class="row">
+            <input class="form-control m-1 col-1" type="text" id="l0c0" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l0c1" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l0c2" disabled>
+        </div>
+        <div id="l1" class="row">
+            <input class="form-control m-1 col-1" type="text" id="l1c0" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l1c1" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l1c2" disabled>
+        </div>
+        <div id="l2" class="row">
+            <input class="form-control m-1 col-1" type="text" id="l2c0" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l2c1" disabled>
+            <input class="form-control m-1 col-1" type="text" id="l2c2" disabled>
+        </div>
+            <label>Linha:</label>
+            <input class="form-control m-1 col-1" type="number" id="linha" min=0 max="2">
+            <label>Coluna:</label>
+            <input class="form-control m-1 col-1" type="number" id="coluna" min=0 max="2">
+            <button class="btn btn-primary m-1 col-3" onclick="jogar()" id="btnJogar">Confimar Jogada</button>
+        <button class="btn btn-primary m-1 col-3" onclick="reiniciar()" id="btnReiniciar">Reiniciar</button>
+        </div>
+        
+    </div>
+    <script>
+        //matriz para representar o jogo da velha
+    velha = [["", "", ""],
+            ["", "", ""],
+            ["", "", ""]];
+        jogada = 0; //quantidade de jogadas realizadas
+        maxJogadas = 9; //quantidade maxima de jogadas
+        quemJoga = 1; //representa o jogador1 ou o jogador2
+        venceu = false; // variável de controle de vitíoria
+
+        function jogar() {
+            linha = document.getElementById ("linha").value;
+            coluna = document.getElementById ("coluna").value;
+            if(jogada < maxJogadas && venceu == false){
+                if (velha[linha][coluna] == ""){
+                    if(quemJoga == 1){
+                        velha[linha][coluna] = "X";
+                        quemJoga = 2;
+                    }else{
+                        velha[linha][coluna] = "O";
+                        quemJoga = 1;
+                    }
+                    jogada ++;
+                }else{
+                    alert("Linha e/ou Coluna inválida!");
+                }
+                tela();
+                venceu = verificar();
+            }
+            if (venceu){
+                btnJogar = document.getElementById ("btnJogar");
+                btnJogar.classList.add("d-none");
+                btnReiniciar = document.getElementById ("btnReiniciar");
+                btnReiniciar.classList.remove("d-none");
+            }
+        }
+        function tela(){
+            for(i = 0; i < 3; i++){
+                for (j = 0; j <3; j++){
+                    celula = document.getElementById("l"+ i + "c" + j);
+                    celula.value = velha [i][j];
+                }
+            }
+        }
+        function verificar(){
+            vitoria= false;
+            simbolos = ["X", "O"];
+            for (i = 0; i < 2; i++){
+                //verificar vitória em linhas
+                vitoria = false;
+                l = c = 0;
+                while(l < 3){ //(condição)percorrer as linhas e contar a quantidade de símbolos iguais em uma linha.
+                    soma = 0;
+                    c = 0; //inicialização da variável
+                    while(c < 3){ //percorre as colunas
+                        if (velha[l][c] == simbolos[i]){
+                            soma++;
+                        }
+                        c++; //incremento da variável
+                    }
+
+                    //verificar se o jogador ganhou
+                    if(soma == 3){
+                        vitoria = true;
+                        break; //para o 1º while(linhas)
+                    }
+                    l++;
+                }if(vitoria){
+                    
+                        alert ("O jogador " + simbolos[i]+" ganhou!");
+                        break; // para o for
+                }
+                //verificar colunas
+                    l = c = 0;
+                while(c < 3){ 
+                    soma = 0;
+                    l = 0; 
+                    while(l < 3){ 
+                        if (velha[l][c] == simbolos[i]){
+                            soma++;
+                        }
+                        l++; //incremento da variável
+                    }
+                    //verificar se o jogador ganhou
+                    if(soma == 3){
+                        vitoria = true;
+                        break; 
+                    }
+                    c++;
+                    
+                }if(vitoria){
+                    
+                    alert ("O jogador " + simbolos[i]+" ganhou!");
+                    break; 
+                }
+                // verificar diagonal 1
+                soma = 0;
+                idiag = 0;
+                while (idiag < 3){
+                    if (velha[idiag][idiag] == simbolos[i])
+                    soma++;
+                    idiag++;
+                }if (soma == 3){
+                    alert("O jogador " + simbolos[i]+" ganhou!");
+                    vitoria = true;
+                    break;
+                }
+               //verificar diagonal 2
+               soma = 0; 
+               idiagl = 0;
+               idiagc = 2;
+               while(idiagc >= 0){
+                if(velha[idiagl][idiagc] == simbolos[i])
+                soma++;
+                idiagl++;
+                idiagc--;
+               }if(soma == 3){
+                alert("O jogador " + simbolos[i]+" ganhou!");
+                vitoria = true;
+                break;
+               }
+               //verificar vitoria diagonal
+            }
+            return vitoria;
+            //retorna o valor da variável vitoria
+        
+    }
+        function reiniciar(){
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>
