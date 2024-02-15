@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root{
+            --ep-effect-trans-y-normal:0;
+            --ep-effect-trans-y-hover:-10px;
+            }
+            .custmom-button{
+                display: online-block;
+                padding: 10px 20px;
+                background-color: blue;
+                color: gray;
+                transition: transform 0.3s ease-out;
+            }
+            .custom-button:hover{
+                transform: translateY(var(--ep-effect-trans-y-hover,var(--ep-effect-trans-y-normal)));
+            }
+    </style>
+    </head>
+    <body>
+        <p>fdgff</p>
+        <p>dgsddf</p>
+        <button class = "custom-button">Hover </buton>
+    </body>
+    </html>
